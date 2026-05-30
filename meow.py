@@ -13,9 +13,9 @@ def resl():
     if os.get_terminal_size().lines < 6:
         print("Autumn")
     else:
-        print("Sh../\\ /^\\".center(c))
-        print(" /^\\/  \\   \\".center(c))
-        print(" /__\\  /_____\\\n".center(c))
+        print("Sh.../\\ /^\\   ".center(c))
+        print(" /^\\/  \\   \\   ".center(c))
+        print(" /__\\  /_____\\   \n".center(c))
     print("\033[0m", end="")
     print(" > | Lynx".center(c))
     print("Apps >".center(c))
@@ -24,6 +24,10 @@ def resl():
     match g:
         case "1":
             run(terminal)
+        case "\x02":
+            os.system("tput cnorm")
+            os.system("clear")
+            os.system("exit")
 def run(app):
     print("\033[33m─\033[0m" * os.get_terminal_size().columns)
     print("\033[2J\033[H", flush=True)
@@ -102,13 +106,14 @@ print("\033[34m", end="")
 if os.get_terminal_size().lines < 6:
     print("Autumn")
 else:
-    print("Sh../\\ /^\\".center(c))
-    print(" /^\\/  \\   \\".center(c))
-    print(" /__\\  /_____\\\n".center(c))
+    print("Sh../\\ /^\\   ".center(c))
+    print(" /^\\/  \\   \\   ".center(c))
+    print(" /__\\  /_____\\   \n".center(c))
+    
 print("\033[0m", end="")
 
-print(" > | Lynx".center(c))
-print("Apps >".center(c))
+print(" >       |       Lynx".center(c))
+print("Apps         >".center(c))
 
 os.system("tput civis")
 g = input()
